@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    position: relative;
+    width: 100%;
+    height: 89vh;
+    background-blend-mode: multiply;
+    background-size: 100%;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+img {
+    max-width: 100%;;
+}
+
+/* Class Styles */
+
+.cs-about {
+    position: absolute;
+    display: inline-block;
+    width: 42%;
+    height: 100%;
+}
+
+.cs-logo-container {
+    width: 100%;
+    height: 55%;
+    padding: 1em 4em;
+    background-color: rgba(0,0,0,.7);
+    background-image: url('../img/capacitate.jpeg');
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-position: center 40%;
+    background-size: 100%;
+}
+
+.cs-logo-container img {
+    width: 22em;
+}
+
+.cs-about__text {
+    position: relative;
+    background-color: #F4E44F;
+    padding: 2em;
+    height: 45%;
+    z-index: 10;
+}
+
+#svg-waves {
+    position: absolute;
+    top: -7em;
+    left: 0;
+    z-index: -1;
+}
+
+.cs-about__text h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    max-width: 9.6em;
+    line-height: 1.1;
+    color: #555562;
+}
+
+#cripto-wallet-svg {
+    display: block;
+    opacity: .5;
+    margin: 2em 0 0 6em;
+    width: 5em;
+}
+
+/* Main */
+
+.main-selection {
+    width: 120%;
+    display: flex;
+    position: absolute;
+    overflow: hidden;
+    height: 100%;
+    right: 0;
+    z-index: 20;
+}
+
+.main-selection__item {
+    position: relative;
+    padding: 1.5em 0;
+    color: #fff;
+    transition: transform .3s ease-out;
+    transition-delay: .2s;
+}
+
+.main-selection__title {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    position: relative;
+    left: 45%;
+    max-width: 36%;
+}
+
+.main-selection__wrapper {
+    display: flex;
+    margin-top: 1.8em;
+    transition: opacity .7s ease-in;
+    //opacity: 0;
+    position: relative;
+    left: 30%;
+    flex-direction: column;
+    align-items: center;
+    max-width: 50%;
+}
+
+.main-selection__wrapper p {
+    word-break: break-all;
+    text-align: justify;
+    width: 100%;
+    height: 10em;
+}
+
+.main-selection__wrapper p::before {
+    content: "";
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    shape-outside: polygon(20% 0, 0 0, 0 100%);
+    clip-path: polygon(20% 0, 0 0, 0 100%);
+}
+
+
+.main-selection__item:first-child {
+    background-color: rgb(70 33 217);
+    clip-path: polygon(40% 0, 100% 0%, 60% 100%, 0 100%);
+    right: -38%;
+}
+
+.main-selection__item:nth-child(2) {
+    background-color: rgb(48, 16, 163);
+    clip-path: polygon(40% 0, 100% 0%, 60% 100%, 0 100%);
+    right: -20%;
+}
+
+.main-selection__item:last-child {
+    background-color: rgb(32, 8, 119);
+    clip-path: polygon(40% 0, 100% 0%, 100% 100%, 0% 100%);
+    right: -2%;
+}
+
+.button-readmore {
+    margin-top: 1em;
+    position: relative;
+    left: -1em;
+    width: 5em;
+    height: 5em;
+    background-color: transparent;
+    border-style: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.main-selection__item i {
+    transition: transform .2s linear;
+}
+
+.main-selection__item:hover i {
+    transition: transform .3s ease-in;
+    transform: translateY(.2em) scaleY( 1.2);
+}
+
+.longText {
+    display: none;
+    position: absolute;
+    max-width: 50%;
+    top: 20%;
+    left: 20%;
+}
+
+.longText img {
+    width: 30%;
+    margin: 1em;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.longText i {
+    display: block;
+    font-size: 4em;
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 11vh;
+    width: 100%;
+    background-color: #E6E6E6;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+footer ul {
+    display: inline-flex;
+    width: 75%;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer ul li {
+    cursor: pointer;
+}
+
+footer ul i {
+    margin-right: .5em;
+}
+
+footer ul:hover i {
+    animation: estirarFlecha 1s infinite;
+}
+
+@keyframes estirarFlecha {
+    0% {
+        transform: scaleX(1);
+    }
+
+    50% {
+        transform: scaleX(1.15);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+footer ul li {
+    font-size: 2.2rem;
+    color: #5F527A;
+    font-weight: 500;
+}
+
+.bitcoin-info {
+    display: inline-block;
+    background-color: #fff;
+    padding: 1.2em 2em;
+    height: 100%;
+    color: rgb(14, 155, 84);
+}
+
+.bitcoin-info i {
+    font-size: 2rem;
+}
+
+.bitcoin-info p {
+    display: inline-block;
+    margin-left: .5em;
+    font-size: 2rem;
+}
+
+/* Hover */
+
+.main-selection__item:hover {
+    filter: brightness(140%);
+}
+
+.main-selection__item:hover .main-selection__wrapper {
+    transition: opacity .3s ease-in;
+    opacity: 1;
+}
+
+.main-selection__item:first-child:hover {
+    transition: transform .3s ease-out;
+    transform: translateX(-14%)
+}
+
+.main-selection__item:nth-child(2):hover {
+    transition: transform .3s ease-out;
+    transform: translateX(-14%)
+}
+
+.main-selection__item:last-child:hover {
+    transition: transform .3s ease-out;
+    transform: translateX(-5%);
+}
