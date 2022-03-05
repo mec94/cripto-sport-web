@@ -297,9 +297,10 @@ footer ul li {
 }
 
 .bitcoin-info {
-    display: inline-block;
+    display: flex;
     background-color: #fff;
-    padding: 1.2em 2em;
+    padding: 1em;
+    align-items: center;
     height: 100%;
     color: rgb(14, 155, 84);
 }
@@ -309,7 +310,6 @@ footer ul li {
 }
 
 .bitcoin-info p {
-    display: inline-block;
     margin-left: .5em;
     font-size: 2rem;
 }
