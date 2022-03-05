@@ -309,9 +309,15 @@ footer ul li {
     font-size: 2rem;
 }
 
-.bitcoin-info p {
+#bitcoinPrice {
     margin-left: .5em;
     font-size: 2rem;
+}
+
+#priceArrow {
+    margin-left: .5em;
+    width: 1.8em;
+    height: 1.8em;
 }
 
 /* Hover */

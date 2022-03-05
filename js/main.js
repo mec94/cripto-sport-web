@@ -18,29 +18,46 @@ function showPanels(p) {
 
 const btcPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
 const btcPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT';
-const ethPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=ETHUSDT';
-const ethPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=ETHUSDT'
 
 var bitcoinPrice = document.getElementById('bitcoinPrice');
+var priceArrow = document.getElementById('priceArrow');
 
-fetch(btcPrice)
-.then((resp) => resp.json())
-.then(function(data) {
-  let precioSinDecimales = Math.floor(data.price);
-  bitcoinPrice.textContent = `${precioSinDecimales} USD`;
-  console.log(data.price);
-})
-.catch(function(error) {
-  bitcoinPrice.textContent = "Precio No Disp";
-})
+window.onload = actualizarPrecio()
 
-fetch(btcPriceVariation)
-.then((resp) => resp.json())
-.then(function(data) {
-  if (data.priceChangePercent.includes('-')) {
-    console.log('el precio de BTC bajó')
-  }
-  else {
-    console.log('el precio de BTC subió')
-  }
-})
+function actualizarPrecio() {
+
+    fetch(btcPrice)
+      .then((resp) => resp.json())
+      .then(function(data) {
+        let precioSinDecimales = Math.floor(data.price);
+        bitcoinPrice.textContent = `${precioSinDecimales} USD`;
+        console.log(data.price);
+        }
+      )
+      .catch(function(error) {
+        bitcoinPrice.textContent = "Precio No Disp";
+        }
+      )
+
+    fetch(btcPriceVariation)
+      .then((resp) => resp.json())
+      .then(function(data) {
+
+        if (data.priceChangePercent.includes('-')) {
+
+          priceArrow.src = '../img/pricedown.svg'
+          console.log('el precio de btc viene bajando')
+
+        }
+        else {
+
+          priceArrow.src = '../img/priceup.svg'
+          console.log('el precio de btc viene subiendo')
+
+        }
+
+      })
+      
+}
+
+setInterval(actualizarPrecio, 10000);
