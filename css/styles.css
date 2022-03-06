@@ -9,6 +9,11 @@
     box-sizing: border-box;
 }
 
+
+/* Variables */
+
+
+
 /* General Styles */
 
 body {
@@ -19,9 +24,12 @@ body {
 main {
     position: relative;
     width: 100%;
-    height: 89vh;
+    height: 92vh;
+    background: url('../img/main-bg.jpg'), linear-gradient(to bottom, rgb(216, 216, 216, .7), 40%, rgba(18, 29, 42, .8) 90%);
+    background-repeat: no-repeat;
     background-blend-mode: multiply;
-    background-size: 100%;
+    background-position: center 40%;
+    background-size: cover;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -33,40 +41,26 @@ img {
 
 .cs-about {
     position: absolute;
-    display: inline-block;
-    width: 42%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
     height: 100%;
+    z-index: 10;
 }
 
 .cs-logo-container {
-    width: 100%;
-    height: 55%;
-    padding: 1em 4em;
-    background-color: rgba(0,0,0,.7);
-    background-image: url('../img/capacitate.jpeg');
-    background-repeat: no-repeat;
-    background-blend-mode: multiply;
-    background-position: center 40%;
-    background-size: 100%;
+    height: 50%;
+    padding: 1em 2.5em;
 }
 
 .cs-logo-container img {
-    width: 22em;
+    width: 24em;
 }
 
 .cs-about__text {
     position: relative;
-    background-color: #F4E44F;
-    padding: 2em;
-    height: 45%;
-    z-index: 10;
-}
-
-#svg-waves {
-    position: absolute;
-    top: -7em;
-    left: 0;
-    z-index: -1;
+    max-width: 80%;
 }
 
 .cs-about__text h2 {
@@ -74,14 +68,14 @@ img {
     font-weight: 500;
     max-width: 9.6em;
     line-height: 1.1;
-    color: #555562;
+    color: #ffffff;
 }
 
 #cripto-wallet-svg {
     display: block;
-    opacity: .5;
-    margin: 2em 0 0 6em;
-    width: 5em;
+    margin: 1.5em auto;
+    width: 6em;
+    filter: invert(100);
 }
 
 /* Main */
@@ -142,19 +136,19 @@ img {
 
 
 .main-selection__item:first-child {
-    background-color: rgb(70 33 217);
+    background: linear-gradient(to bottom, #121d2a, 60%, #8f7239);;
     clip-path: polygon(40% 0, 100% 0%, 60% 100%, 0 100%);
     right: -38%;
 }
 
 .main-selection__item:nth-child(2) {
-    background-color: rgb(48, 16, 163);
+    background: linear-gradient(to bottom, #121d2a, 60%, #ac8a44);;
     clip-path: polygon(40% 0, 100% 0%, 60% 100%, 0 100%);
     right: -20%;
 }
 
 .main-selection__item:last-child {
-    background-color: rgb(32, 8, 119);
+    background: linear-gradient(to bottom, #121d2a, 60%, #c59e50);;
     clip-path: polygon(40% 0, 100% 0%, 100% 100%, 0% 100%);
     right: -2%;
 }
@@ -250,9 +244,9 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 11vh;
+    height: 8vh;
     width: 100%;
-    background-color: #E6E6E6;
+    background-color: #121d2a;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -266,10 +260,20 @@ footer ul {
 
 footer ul li {
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
 }
 
 footer ul i {
-    margin-right: .5em;
+    margin-right: .6em;
+    font-size: 1.6em;
+}
+
+footer ul span {
+    font-size: 1.8rem;
+    line-height: .9;
+    font-weight: 500;
 }
 
 footer ul:hover i {
@@ -290,34 +294,30 @@ footer ul:hover i {
     }
 }
 
-footer ul li {
-    font-size: 2.2rem;
-    color: #5F527A;
-    font-weight: 500;
-}
-
 .bitcoin-info {
     display: flex;
-    background-color: #fff;
+    background-color: #e7e7e7;
     padding: 1em;
     align-items: center;
     height: 100%;
-    color: rgb(14, 155, 84);
+    color: #121d2a;
 }
 
 .bitcoin-info i {
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 
 #bitcoinPrice {
     margin-left: .5em;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    line-height: .9;
+    font-weight: 500;
 }
 
 #priceArrow {
     margin-left: .5em;
-    width: 1.8em;
-    height: 1.8em;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 /* Hover */
