@@ -118,8 +118,7 @@ img {
     margin-top: 1.8em;
     transition: opacity .7s ease-in;
     opacity: 0;
-    position: relative;
-    left: 30%;
+    margin-left: 32%;
     flex-direction: column;
     align-items: center;
     max-width: 50%;
@@ -138,8 +137,8 @@ img {
     width: 100%;
     height: 100%;
     background-color: transparent;
-    shape-outside: polygon(18% 0, 0 0, 0 100%);
-    clip-path: polygon(18% 0, 0 0, 0 100%);
+    shape-outside: polygon(17% 0, 0 0, 0 100%);
+    clip-path: polygon(17% 0, 0 0, 0 100%);
 }
 
 
@@ -254,7 +253,7 @@ footer {
     justify-content: space-between;
     height: 8vh;
     width: 100%;
-    background-color: #121d2a;
+    background-color: rgb(18,29,42,.8);
     font-family: 'Ubuntu', sans-serif;
 }
 
