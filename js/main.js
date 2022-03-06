@@ -43,10 +43,10 @@ function actualizarPrecio() {
       .then(function(data) {
 
         if (data.priceChangePercent.includes('-')) {
-          priceArrow.src = '../img/pricedown.svg'
+          priceArrow.src = './img/pricedown.svg'
         }
         else {
-          priceArrow.src = '../img/priceup.svg'
+          priceArrow.src = './img/priceup.svg'
         }
 
       })
