@@ -1,12 +1,11 @@
 /* eslint-disable */
 
-
 // Ocultar o mostrar paneles no seleccionados 
 
 const hiddenPanel = document.getElementsByClassName('hiddenPanel');
 
 function showPanels(p) {
-  if (p == 'first-item') {
+  if (p == 'first-panel') {
     hiddenPanel[0].classList.toggle('active');
   }
   else {
@@ -44,20 +43,13 @@ function actualizarPrecio() {
       .then(function(data) {
 
         if (data.priceChangePercent.includes('-')) {
-
           priceArrow.src = '../img/pricedown.svg'
-          console.log('el precio de btc viene bajando')
-
         }
         else {
-
           priceArrow.src = '../img/priceup.svg'
-          console.log('el precio de btc viene subiendo')
-
         }
 
       })
-      
 }
 
 setInterval(actualizarPrecio, 10000);
