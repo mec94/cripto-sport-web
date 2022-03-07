@@ -149,16 +149,14 @@ img {
     background: var(--panel-gradient);
     overflow: hidden;
     height: 100%;
-    width: 120%;
-    transform: translateX(-17%);
-    clip-path: polygon(33% 0, 100% 0%, 67% 100%, 0 100%);
+    width: 100%;
+    clip-path: polygon(40% 0, 100% 0%, 60% 100%, 0 100%);
     transition: opacity .2s linear;
 }
 
 .main-selection__panel:last-child .main-selection__backface {
     clip-path: polygon(40% 0, 100% 0%, 100% 100%, 0% 100%);
     width: 100%;
-    transform: none;
 }
 
 .main-selection__backface video {
@@ -367,29 +365,12 @@ footer ul li:hover::before {
     transform-origin: center;
 }
 
-footer ul:hover i {
-    animation: estirarFlecha 1.2s infinite;
-}
-
-@keyframes estirarFlecha {
-    0% {
-        transform: scaleX(1);
-    }
-
-    50% {
-        transform: scaleX(1.1);
-    }
-
-    100% {
-        transform: scaleX(1);
-    }
-}
-
 .bitcoin-info {
     display: flex;
     background-color: #e7e7e7;
     padding: 1em 2em;
     align-items: center;
+    justify-content: center;
     height: 100%;
     color: #121d2a;
 }
@@ -399,7 +380,7 @@ footer ul:hover i {
 }
 
 #bitcoinPrice {
-    margin-left: .5em;
+    margin-left: .6em;
     font-size: 1.8rem;
     line-height: .9;
     font-weight: 500;
@@ -407,7 +388,7 @@ footer ul:hover i {
 }
 
 #priceArrow {
-    margin-left: .5em;
+    margin-left: .6em;
     width: 1.5rem;
     height: 1.5rem;
 }
@@ -420,8 +401,31 @@ footer ul:hover i {
 }
 
 .main-selection__panel:hover .main-selection__backface {
+    z-index: 100;
     opacity: 1;
-    transition: opacity .5s ease-out;
+    animation: ancho .5s ease-out;
+    animation-fill-mode: forwards;
+    //transition: opacity .5s ease-out;
+    
+}
+
+@keyframes ancho {
+    from {
+        right: 0;
+        width: 100%;
+    }
+    to {
+        right: 0;
+        width: 120%;
+        clip-path: polygon(33% 0, 100% 0%, 67% 100%, 0 100%);
+    }
+}
+
+.main-selection__panel:last-child:hover .main-selection__backface {
+    clip-path: polygon(40% 0, 100% 0%, 100% 100%, 0% 100%);
+    width: 100%;
+    animation: none;
+    transform: none;
 }
 
 .main-selection__panel:hover .main-selection__wrapper {
@@ -432,10 +436,127 @@ footer ul:hover i {
 
 /* Media Queries */
 
-@media and (max-width: 800px) {
+@media screen and (max-width: 800px) {
+
+main {
+    height: 100%;
+}
+
 .cs-about {
-    height: 10vh;
-    width: 100vw;
+    width: 100%;
+    position: relative;
+}
+
+.cs-about__text {
+    margin: 3em 0 1.5em;
+}
+
+#bitcoin-bag-svg {
+    display: none;
+}
+
+.main-selection {
+    flex-direction: column;
+    position: relative;
+}
+
+.main-selection__panel:first-child,
+.main-selection__panel:nth-child(2),
+.main-selection__panel:last-child {
+    right: 0;
+}
+
+.main-selection__panel:last-child .main-selection__front {
+    clip-path: none;
+}
+
+.main-selection__panel:hover .main-selection__front{
+    opacity: 1;
+}
+
+.main-selection__front {
+    clip-path: none;
+}
+
+.main-selection__backface {
+    transform: scaleY(0);
+}
+
+.main-selection__panel:hover .main-selection__backface {
+    position: relative;
+    transition: transform .4s ease-out;
+    transform-origin: top;
+    transform: scaleY(1);
+    clip-path: none;
+    animation: none;
+    top: 100%;
+}
+
+.main-selection__panel:first-child .main-selection__backface {
+    display: none;
+}
+
+.main-selection__panel:first-child::before {
+    content: "112302500";
+    padding: .8em 0;
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--panel-gradient);
+    z-index: 1;
+    opacity: 0;
+}
+
+.main-selection__panel:first-child:hover::before {
+    opacity: 1;
+    transition: transform .5s ease-out, opacity .5s ease-out;
+    transform: translateX(-100%);
+}
+
+.main-selection__panel:last-child:hover .main-selection__backface {
+    clip-path: none;
+}
+
+.main-selection__wrapper {
+    max-width: 80%;
+    margin-left: 0;
+}
+
+.main-selection__panel:last-child .main-selection__wrapper {
+    margin-left: 0;
+}
+
+.main-selection__wrapper h3 {
+    display: none;
+}
+
+.main-selection__wrapper p {
+    height: 100%;
+}
+
+footer {
+    flex-direction: column;
+    height: 100%;
+}
+
+footer ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 1em 0;
+}
+
+footer ul li {
+    padding: 1.5em;
+    width: 100%;
+    justify-content: center;
+}
+
+.bitcoin-info {
+    width: 100%;
 }
 
 }

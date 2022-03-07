@@ -15,18 +15,19 @@ function showPanels(p) {
 
 // Anime JS
 
-const hoverPanel = document.querySelectorAll('.main-selection__backface');
+/*const hoverPanel = document.querySelectorAll('.main-selection__backface');
 
-/*anime({
-  targets: hoverPanel,
-  duration: 1000,
-  width: '120%',
+anime({
+  targets: hoverPanel[0],
+  duration: 2000,
+  easing: 'linear',
+  width: ['100%','120%'],
 })
 */
 
 // Consulta API Binance
 
-/*
+
 
 const btcPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
 const btcPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT';
@@ -66,5 +67,3 @@ function actualizarPrecio(coinPrice,coinVariation) {
 }
 
 setInterval( () => {actualizarPrecio(btcPrice,btcPriceVariation)}, 10000);
-
-*/
