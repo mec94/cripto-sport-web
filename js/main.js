@@ -13,32 +13,45 @@ function showPanels(p) {
   }
 }
 
+// Anime JS
+
+const hoverPanel = document.querySelectorAll('.main-selection__backface');
+
+/*anime({
+  targets: hoverPanel,
+  duration: 1000,
+  width: '120%',
+})
+*/
+
 // Consulta API Binance
+
+/*
 
 const btcPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
 const btcPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT';
 
-var bitcoinPrice = document.getElementById('bitcoinPrice');
+var coinTagBtc = document.getElementById('bitcoinPrice');
 var priceArrow = document.getElementById('priceArrow');
 
-window.onload = actualizarPrecio()
+window.onload = actualizarPrecio(btcPrice,btcPriceVariation)
 
-function actualizarPrecio() {
+function actualizarPrecio(coinPrice,coinVariation) {
 
-    fetch(btcPrice)
+    fetch(coinPrice)
       .then((resp) => resp.json())
       .then(function(data) {
         let precioSinDecimales = Math.floor(data.price);
-        bitcoinPrice.textContent = `${precioSinDecimales} USD`;
-        console.log(data.price);
+        coinTagBtc.textContent = `${precioSinDecimales} USD`;
+        console.log(data.price)
         }
       )
       .catch(function(error) {
-        bitcoinPrice.textContent = "Precio No Disp";
+        coinTag.textContent = "Precio No Disp";
         }
       )
 
-    fetch(btcPriceVariation)
+    fetch(coinVariation)
       .then((resp) => resp.json())
       .then(function(data) {
 
@@ -52,4 +65,6 @@ function actualizarPrecio() {
       })
 }
 
-setInterval(actualizarPrecio, 10000);
+setInterval( () => {actualizarPrecio(btcPrice,btcPriceVariation)}, 10000);
+
+*/
