@@ -450,6 +450,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
     height: 8vh;
     width: 100%;
     background-color: rgba(191,190,190,.2);
@@ -459,7 +460,6 @@ footer {
 
 footer ul {
     display: inline-flex;
-    width: 75%;
     height: 100%;
     list-style: none;
     justify-content: space-around;
@@ -510,21 +510,27 @@ footer ul li:hover::before {
     transform-origin: center;
 }
 
-.bitcoin-info {
+.coin-info {
     display: flex;
     background-color: #e7e7e7;
-    padding: 1em 2em;
-    align-items: center;
-    justify-content: center;
     height: 100%;
     color: #121d2a;
 }
 
-.bitcoin-info i {
-    font-size: 1.7rem;
+.coin-info__name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 1.5em;
+    width: 50%;
+    border-left: 1px solid var(--gold-clr);
 }
 
-#bitcoinPrice {
+.coin-info img {
+    height: 2em;
+}
+
+.coinPrice {
     margin-left: .6em;
     font-size: 1.8rem;
     line-height: .9;
@@ -532,7 +538,7 @@ footer ul li:hover::before {
     flex-shrink: 0;
 }
 
-#priceArrow {
+.priceArrow {
     margin-left: .6em;
     width: 1.5rem;
     height: 1.5rem;

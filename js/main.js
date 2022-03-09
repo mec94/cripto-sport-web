@@ -26,46 +26,33 @@ form.addEventListener("submit", e => {
   });
 });
 
-// Anime JS
-
-/*const hoverPanel = document.querySelectorAll('.main-selection__backface');
-
-anime({
-  targets: hoverPanel[0],
-  duration: 2000,
-  easing: 'linear',
-  width: ['100%','120%'],
-})
-*/
 
 // Consulta API Binance
-
-
-/*
 
 const btcPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
 const btcPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT';
 
-const ethPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
-const ethPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT';
+const ethPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=ETHUSDT';
+const ethPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=ETHUSDT';
 
-var coinTagBtc = document.getElementById('bitcoinPrice');
-var priceArrow = document.getElementById('priceArrow');
+var coinName = document.querySelectorAll('.coinPrice');
+var priceArrow = document.querySelectorAll('.priceArrow');
 
-window.onload = actualizarPrecio(btcPrice,btcPriceVariation)
+window.onload = actualizarPrecio(btcPrice,btcPriceVariation,coinName[0],priceArrow[0])
+window.onload = actualizarPrecio(ethPrice,ethPriceVariation,coinName[1],priceArrow[1])
 
-function actualizarPrecio(coinPrice,coinVariation) {
+function actualizarPrecio(coinPrice,coinVariation,coinName,priceArrow) {
 
     fetch(coinPrice)
       .then((resp) => resp.json())
       .then(function(data) {
         let precioSinDecimales = Math.floor(data.price);
-        coinTagBtc.textContent = `${precioSinDecimales} USD`;
+        coinName.textContent = `${precioSinDecimales} USD`;
         console.log(data.price)
         }
       )
       .catch(function(error) {
-        coinTag.textContent = "Precio No Disp";
+        coinName.textContent = "Precio No Disp";
         }
       )
 
@@ -83,7 +70,7 @@ function actualizarPrecio(coinPrice,coinVariation) {
       })
 }
 
-setInterval( () => {actualizarPrecio(btcPrice,btcPriceVariation)}, 10000);
+setInterval( () => {actualizarPrecio(btcPrice,btcPriceVariation,coinName[0],priceArrow[0])}, 10000);
+setInterval( () => {actualizarPrecio(ethPrice,ethPriceVariation,coinName[1],priceArrow[1])}, 10000);
 
 
-*/
