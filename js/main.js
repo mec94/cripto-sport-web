@@ -21,13 +21,15 @@ form.addEventListener("submit", e => {
   }).then(
       response => response.json()
   ).then((html) => {
-      formularioEnviado.textContent = `Listo ${form['0'].value}. Recibirás nuestro contenido en un futuro`;
       form.style = 'display: none';
+      formularioEnviado.textContent = `Listo, ${form['0'].value}. Recibirás nuestro contenido próximamente`;
   });
 });
 
 
 // Consulta API Binance
+
+
 
 const btcPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
 const btcPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT';
@@ -72,5 +74,4 @@ function actualizarPrecio(coinPrice,coinVariation,coinName,priceArrow) {
 
 setInterval( () => {actualizarPrecio(btcPrice,btcPriceVariation,coinName[0],priceArrow[0])}, 10000);
 setInterval( () => {actualizarPrecio(ethPrice,ethPriceVariation,coinName[1],priceArrow[1])}, 10000);
-
 
