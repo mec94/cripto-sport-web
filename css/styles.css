@@ -69,7 +69,7 @@ img {
 
 .cs-logo-container h1 {
     margin-left: .3em;
-    font-size: 2em;
+    font-size: 2rem;
     color: #fff;
     flex-shrink: 0;
 }
@@ -133,6 +133,13 @@ img {
     transition: opacity .2s ease-out;
 }
 
+.main-selection__front img {
+    position: absolute;
+    width: 80%;
+    right: 8%;
+    bottom: 8%;
+}
+
 .main-selection__panel:last-child .main-selection__front {
     clip-path: polygon(40% 0, 100% 0%, 100% 100%, 0% 100%);
 }
@@ -163,6 +170,8 @@ img {
     position: absolute;
     top: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     z-index: -1;
     opacity: .2;
 }
@@ -173,6 +182,7 @@ img {
     position: relative;
     left: 45%;
     max-width: 50%;
+    color: #fff;
 }
 
 .main-selection__wrapper {
@@ -187,7 +197,8 @@ img {
 }
 
 .main-selection__panel:last-child .main-selection__wrapper {
-    margin-left: 20%;
+    margin-left: 25%;
+    max-width: 60%;
 }
 
 .main-selection__wrapper h3 {
@@ -237,50 +248,147 @@ img {
     transform: translateY(.2em) scaleY( 1.2);
 }
 
-/* Hidden Panels */
+/* Crew Card */
 
-.hiddenPanel {
+.crew-card {
+    width: 13em;
+    cursor: pointer;
+    height: 16em;
+    position: relative;
+    border: 2px solid rgb(172,138, 68);
+    overflow: hidden;
+    font-family: 'Ubuntu', sans-serif;
+    color: #fff;
+    background: url('../img/crewpics/profilepic-example.jpg') no-repeat;
+    background-color: rgba(206, 206, 206, 1);
+    background-size: 50%;
+    background-position: center;
+}
+
+.crew-card__front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity .3s linear;
+}
+
+.crew-card__name {
+    position: absolute;
+    font-size: 1.2rem;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    background-color: rgba(18, 29, 42, .6);
+}
+
+.crew-card__name i {
+    margin-right: .8em;
+    font-size: .8em;
+}
+
+.crew-card__name h3 {
+    padding: .4em;
+}
+
+.crew-card__name p {
+    width: 100%;
+    padding: .3em;
+    background-color: rgba(18, 29, 42, .6);
+}
+
+.crew-card__back {
+    opacity: 0;
+    transition: opacity .1s linear;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.crew-card__back .crew-card__name {
+    position: relative;
+    top: 0;
+}
+
+.crew-card__about {
+    padding: 1em 1.2em;
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
+.crew-card__social {
+    display: flex;
+    justify-content: space-around;
+    padding: 1em 4em;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+/* Crew Card Hover */
+
+.crew-card:hover {
+    background-color: rgba(134, 134, 134, 0.4);
+}
+
+.crew-card:hover .crew-card__front {
+    transition: opacity .1s linear;
+    opacity: 0;
+}
+
+.crew-card:hover .crew-card__back {
+    opacity: 1;
+    transition: opacity .7s ease-out;
+    z-index: 20;
+}
+
+/* Modal Window */
+
+.modalWindow {
     display: none;
     position: absolute;
     top: 0;
     right: 0;
-    width: 91%;
+    width: 100%;
     height: 100%;
-    background-color: transparent;
-    opacity: 0;
+    background-color: rgba(172, 138, 68, 0);
 }
 
-.hiddenPanel.active {
+.modalWindow.active {
+    display: flex;
     z-index: 20;
-    transition: opacity .4s ease-out;
+}
+
+.modalWindow .main-selection__backface {
+    position: relative;
+    width: 40%;
     opacity: 1;
 }
 
-.hiddenPanel__title {
-    width: 35%;
-    background-color: rgb(75, 19, 186);
-    clip-path: polygon(50% 0, 100% 0%, 50% 100%, 0 100%);
-    z-index: 1;
-    position: relative;
-    right: -18%;
-    padding: 1em 2em
+.modalWindow > .main-selection__backface h3 {
+    font-size: 2rem;
+    left: 17%;
+    text-transform: none;
 }
 
-.hiddenPanel__title h3 {
-    font-size: 1.6rem;
-    text-align: right;
+.modalWindow__content {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    right: 0;
+    padding: 2em 0 2em 18%;
+    width: 76%;
+    height: 100%;
+    background: var(--panel-gradient);
+}
+
+.team-panel {
+    margin: 10% 0 0 20%;
+    height: 30%;
+    font-size: 2rem;
     color: #fff;
-    letter-spacing: 1px
 }
 
-.hiddenPanel__content {
-    padding: 1em;
-    width: 65%;
-    background-color: rgb(34, 11, 116);
-    clip-path: polygon(25% 0, 100% 0%, 100% 100%, 0 100%);
-}
-
-.hiddenPanel__content p {
+/* .modalWindow__content > p {
     margin-left: 14%;
     word-break: break-all;
     width: 85%;
@@ -288,7 +396,7 @@ img {
     color: #fff
 }
 
-.hiddenPanel__content p::before {
+.modalWindow__content p::before {
     content: "";
     width: 100%;
     height: 100%;
@@ -297,7 +405,44 @@ img {
     clip-path: polygon(16% 0, 0 0, 0 100%);
     float: left;
 }
+*/
 
+
+/* Subscription Form */
+
+#formularioSubscripcion {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+}
+
+#formularioSubscripcion label {
+    margin: .4em 0;
+}
+
+#formularioSubscripcion input {
+    padding: .4em .5em;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+#formularioSubscripcion input:hover {
+    outline: 2px solid var(--gold-clr)
+}
+
+#formularioSubscripcion button {
+    border: none;
+    border-radius: 4px;
+    background-color: var(--gold-clr);
+    font-size: 1.2rem;
+    color: #fff;
+    padding: .5em 1em;
+}
+
+#formularioSubscripcion button:hover {
+    filter: brightness(120%);
+}
 
 /* Footer */
 
@@ -376,7 +521,7 @@ footer ul li:hover::before {
 }
 
 .bitcoin-info i {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
 }
 
 #bitcoinPrice {
@@ -405,7 +550,7 @@ footer ul li:hover::before {
     opacity: 1;
     animation: ancho .5s ease-out;
     animation-fill-mode: forwards;
-    //transition: opacity .5s ease-out;
+    transition: opacity .4s ease-out;
     
 }
 
@@ -436,7 +581,13 @@ footer ul li:hover::before {
 
 /* Media Queries */
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 920px) {
+
+body {
+    background-position: 50% 0%;
+    background-size: 200%;
+    background-repeat: repeat-y;
+}
 
 main {
     height: 100%;
@@ -559,4 +710,31 @@ footer ul li {
     width: 100%;
 }
 
+}
+
+@media screen and (min-width: 1600px) {
+
+    .cs-about {
+        padding: 3em;
+    }
+
+    .cs-logo-container img {
+        width: 3.5em;
+    }
+
+    .cs-logo-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .cs-about__text {
+        max-width: 24em;
+    }
+
+    .cs-about__text h2 {
+        font-size: 2.5rem;
+    }
+
+    #bitcoin-bag-svg {
+        width: 15em;
+    }
 }

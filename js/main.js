@@ -1,17 +1,30 @@
 /* eslint-disable */
 
-// Ocultar o mostrar paneles no seleccionados 
+// Ocultar o mostrar ventanas modales
 
-const hiddenPanel = document.getElementsByClassName('hiddenPanel');
+const modalWindow = document.getElementsByClassName('modalWindow');
 
-function showPanels(p) {
-  if (p == 'first-panel') {
-    hiddenPanel[0].classList.toggle('active');
-  }
-  else {
-    hiddenPanel[1].classList.toggle('active');
-  }
+function showPanels(b) {
+    modalWindow[0].classList.toggle('active');
 }
+
+// Formulario Subscripcion
+
+var form = document.getElementById('formularioSubscripcion');
+var formularioEnviado = document.getElementById('formularioEnviado')
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  fetch(form.action, {
+      method : "POST",
+      body: new FormData(document.getElementById("formularioSubscripcion")),
+  }).then(
+      response => response.json()
+  ).then((html) => {
+      formularioEnviado.textContent = `Listo ${form['0'].value}. Recibirás nuestro contenido en un futuro`;
+      form.style = 'display: none';
+  });
+});
 
 // Anime JS
 
@@ -28,9 +41,11 @@ anime({
 // Consulta API Binance
 
 
-
 const btcPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
 const btcPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT';
+
+const ethPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
+const ethPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT';
 
 var coinTagBtc = document.getElementById('bitcoinPrice');
 var priceArrow = document.getElementById('priceArrow');
