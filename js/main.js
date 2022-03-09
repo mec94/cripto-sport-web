@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-// Ocultar o mostrar ventanas modales
+// Panel Crew
 
 const modalWindow = document.getElementsByClassName('modalWindow');
 
@@ -28,8 +28,6 @@ form.addEventListener("submit", e => {
 
 
 // Consulta API Binance
-
-
 
 const btcPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
 const btcPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT';
