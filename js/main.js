@@ -10,19 +10,19 @@ function showPanels(b) {
 
 // Formulario Subscripcion
 
-var form = document.getElementById('formularioSubscripcion');
+var form = document.getElementById('formulario');
 var formularioEnviado = document.getElementById('formularioEnviado')
 
 form.addEventListener("submit", e => {
   e.preventDefault();
   fetch(form.action, {
       method : "POST",
-      body: new FormData(document.getElementById("formularioSubscripcion")),
+      body: new FormData(document.getElementById("formulario")),
   }).then(
       response => response.json()
   ).then((html) => {
+      formularioEnviado.textContent = `Listo, ${form['0'].value}. Recibirás nuestro contenido próximamente.`;
       form.style = 'display: none';
-      formularioEnviado.textContent = `Listo, ${form['0'].value}. Recibirás nuestro contenido próximamente`;
   });
 });
 
