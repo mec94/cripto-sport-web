@@ -3,9 +3,39 @@
 // Panel Crew
 
 const modalWindow = document.getElementsByClassName('modalWindow');
+const modalWindowCategory = document.querySelectorAll('.modalWindow__category')
+
+function teamCategory(selection) {
+
+  for (i=0; i < modalWindowCategory.length; i++ ) {
+    modalWindowCategory[i].classList.remove('active');
+  }
+
+  if (selection == 'gerencia') {
+    modalWindowCategory[0].classList.add('active');
+
+  }
+
+  if (selection == 'administracion') {
+    modalWindowCategory[1].classList.add('active');
+  }
+
+  if (selection == 'contenidos') {
+    modalWindowCategory[2].classList.add('active');
+  }
+
+  if (selection == 'exchange') {
+    modalWindowCategory[3].classList.add('active');
+  }
+
+}
+
+function closePanel() {
+  modalWindow[0].classList.remove('active');
+}
 
 function showPanels(b) {
-    modalWindow[0].classList.toggle('active');
+  modalWindow[0].classList.toggle('active');
 }
 
 // Formulario Subscripcion
