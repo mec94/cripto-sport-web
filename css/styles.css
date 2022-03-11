@@ -916,6 +916,12 @@ footer ul li img {
     flex-direction: column;
 }
 
+.redes {
+    width: 100%;
+    border-radius: 0px;
+    justify-content: center;
+}
+
 }
 
 @media screen and (max-width: 1500px) {
