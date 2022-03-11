@@ -1,9 +1,9 @@
-/* eslint-disable */
-
 // Panel Crew
 
 const modalWindow = document.getElementsByClassName('modalWindow');
 const modalWindowCategory = document.querySelectorAll('.modalWindow__category')
+
+window.onload = teamCategory('gerencia');
 
 function teamCategory(selection) {
 
@@ -13,7 +13,6 @@ function teamCategory(selection) {
 
   if (selection == 'gerencia') {
     modalWindowCategory[0].classList.add('active');
-
   }
 
   if (selection == 'administracion') {
@@ -59,6 +58,8 @@ form.addEventListener("submit", e => {
 
 // Consulta API Binance
 
+/*
+
 const btcPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
 const btcPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT';
 
@@ -103,3 +104,4 @@ function actualizarPrecio(coinPrice,coinVariation,coinName,priceArrow) {
 setInterval( () => {actualizarPrecio(btcPrice,btcPriceVariation,coinName[0],priceArrow[0])}, 10000);
 setInterval( () => {actualizarPrecio(ethPrice,ethPriceVariation,coinName[1],priceArrow[1])}, 10000);
 
+*/

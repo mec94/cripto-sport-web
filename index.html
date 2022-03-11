@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon//apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon//favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/site.webmanifest">
     <link rel="stylesheet" type="text/css" href="./css/styles.css" />
     <title>Cripto Spot</title>
 </head>
@@ -20,13 +24,13 @@
             </div>
         </section>
         <section class="panels-container">
-            <div class="selectable-panel">
+            <div class="selectable-panel" id="exchange">
                 <div class="front-panel">
                     <div class="front-panel__wrapper">
                         <h3 class="front-panel__title">Exchange</h3>
                         <h4 class="front-panel__subtitle">Comprá y vendé criptos</h4>
                     </div>
-                    <img src="./img/exchange.svg" alt="">
+                    <img src="./img/exchange.svg" alt="Exchange-Icono">
                 </div>
                 <div class="hover-panel">
                     <video autoplay muted loop>
@@ -40,19 +44,19 @@
                         </p>
                         <h4>Solicitar Cotización</h4>
                         <p>Ponte en contacto</p>
-                        <a target="_blank" href="https://api.whatsapp.com/send?phone=01125444919&text=Hola,%20me%20interesa%20obtener%20una%20cotizacion.%20He%20ingresado%20por%20CriptoSpot.com" class="whatsapp-container">
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone=541125444919&text=Hola,%20me%20interesa%20obtener%20una%20cotizacion.%20He%20ingresado%20desde%20CriptoSpot.com" class="whatsapp-container">
                             <img src="./img/whatsapp-icon.svg" alt=""><span>Iniciar Chat</span>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="selectable-panel">
+            <div class="selectable-panel" id="criptonizate">
                 <div class="front-panel">
                     <div class="front-panel__wrapper">
                         <h3 class="front-panel__title">Criptonizate</h3>
                         <h4 class="front-panel__subtitle">Creemos en las personas</h4>
                     </div>
-                    <img src="./img/criptonizate.svg" alt="">
+                    <img src="./img/criptonizate.svg" alt="Criptonizate-Icono">
                 </div>
                 <div class="hover-panel">
                     <video autoplay muted loop>
@@ -66,7 +70,7 @@
                         </p>
                         <ul>
                             <li>Creación de NFT's</li>
-                            <li>Pagos con cripto en tu web</li>
+                            <li>Pasarela de pago con criptos</li>
                             <li>Creación de Smart Contracts</li>
                         </ul>
                         <h4>Contanos sobre tu proyecto</h4>
@@ -75,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            <div class="selectable-panel">
+            <div class="selectable-panel" id="capacitate">
                 <div class="front-panel">
                     <div class="front-panel__wrapper front-panel__wrapper--last">
                         <h3 class="front-panel__title">Capacitate</h3>
@@ -88,6 +92,7 @@
                             <button type="submit">Enviar</button>
                         </form>
                     </div>
+                    <img id="capacitateIcono" src="./img/learning.svg" alt="Capacitate-Icono">
                 </div>
                 <div class="hover-panel hover-panel--last">
                     <video autoplay muted loop>
@@ -95,7 +100,7 @@
                     </video>
                     <div class="hover-panel__wrapper hover-panel__wrapper--last">
                         <h3>Capacitate</h3>
-                        <p class="bent-paragraph">Sé de los primeros en recibir contenido educativo y de actualidad sobre criptomonedas<br><br>Suscribete a nuestro newsletter.</p>
+                        <p>Sé de los primeros en recibir contenido educativo y de actualidad sobre criptomonedas<br><br>Suscribete a nuestro newsletter.</p>
                         <form action="https://sheetdb.io/api/v1/0rx8qn7qpzwkt" class="formularioSubscripcion" id="formulario" method="post">
                             <label for="nombre">Tu nombre</label>
                             <input type="text" id="nombre" name="data[nombre]">
@@ -104,6 +109,14 @@
                             <button type="submit">Enviar</button>
                         </form>
                         <p id="formularioEnviado"></p>
+                    </div>
+                    <div class="redes">
+                        <a target="_blank" href="https://www.instagram.com/criptospot/">
+                            <img src="./img/instagram.svg" alt="Instagram-Cripto-Spot">
+                        </a>
+                        <a target="_blank" href="https://twitter.com/criptospot_ar">
+                            <img src="./img/twitter.svg" alt="Twitter-Cripto-Spot">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -124,7 +137,7 @@
                             Administración
                         </div>
                         <div class="team-panel__option" id="contenidos" onclick="teamCategory(this.id)">
-                            Contenidos
+                            Marketing
                         </div>
                         <div class="team-panel__option" id="exchange" onclick="teamCategory(this.id)">
                             Exchange
@@ -272,7 +285,7 @@
                         <div class="crew-card__back">
                             <div class="crew-card__name">
                                 <h3>Lucas Romano</h3>
-                                <p>Estrategias y redacción contenido RRSS</p>
+                                <p>Redacción contenido RRSS</p>
                             </div>
                             <p class="crew-card__about">
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -414,5 +427,14 @@
     </footer>
     <script src="https://kit.fontawesome.com/be8d402dc7.js" crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8F5JTG64KK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8F5JTG64KK');
+    </script>
 </body>
 </html>
