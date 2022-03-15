@@ -551,6 +551,10 @@ a {
     filter: brightness(120%);
 }
 
+.slide-buttons {
+    display: none;
+}
+
 .team-panel {
     font-size: 1.7rem;
     text-align: center;
@@ -839,6 +843,47 @@ main {
     clip-path: none;
 }
 
+.modalWindow {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+}
+
+.modalWindow__category {
+    grid-gap: 0;
+    gap: 0;
+}
+
+.modalWindow .hover-panel {
+    transform: none;
+    width: 100%;
+}
+
+.modalWindow .hover-panel__wrapper {
+    width: 100%;
+    height: auto;
+}
+
+.modalWindow__content {
+    position: relative;
+    width: 100%;
+    padding: 1em;
+}
+
+.modalWindow__category.active {
+    display: flex;
+}
+
+.team-panel {
+    display: flex;
+}
+
+.hover-panel {
+    padding: 2em 0;
+    overflow:visible;
+    height: auto;
+}
+
 .hover-panel h3 {
     left: 0;
 }
@@ -897,15 +942,30 @@ footer ul li img {
     border-bottom: 1px solid var(--gold-clr);
 }
 
-.modalWindow {
-    display: none;
-    flex-direction: column;
-}
-
 .redes {
     width: 100%;
     border-radius: 0px;
     justify-content: center;
+}
+
+.slide-buttons {
+    display: block;
+}
+
+.slide-buttons img {
+    width: 3em;
+}
+
+.slide-buttons img:first-child {
+    transform: rotateY(180deg);
+}
+
+#goBackButton {
+    padding: .2em;
+}
+
+#goBackButton span {
+    font-size: 1.2em;
 }
 
 }

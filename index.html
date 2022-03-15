@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
     <link rel="manifest" href="./img/favicon/site.webmanifest">
     <link rel="stylesheet" type="text/css" href="./css/styles.css" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/swiper-bundle.css" />
     <title>Cripto Spot</title>
     <meta name="description" content="La manera mas sencilla de acceder a las criptomonedas">
 </head>
@@ -132,16 +132,16 @@
                 <div class="hover-panel__wrapper">
                     <h3 class="main-selection__title">Nuestro Equipo</h3>
                     <section class="team-panel">
-                        <div class="team-panel__option" id="gerencia" onclick="teamCategory(this.id)">
+                        <div class="team-panel__option swiper-slide" id="gerencia" onclick="teamCategory(this.id)">
                             Gerencia
                         </div>
-                        <div class="team-panel__option" id="administracion" onclick="teamCategory(this.id)">
+                        <div class="team-panel__option swiper-slide" id="administracion" onclick="teamCategory(this.id)">
                             Administración
                         </div>
-                        <div class="team-panel__option" id="contenidos" onclick="teamCategory(this.id)">
+                        <div class="team-panel__option swiper-slide" id="contenidos" onclick="teamCategory(this.id)">
                             Marketing
                         </div>
-                        <div class="team-panel__option" id="exchange" onclick="teamCategory(this.id)">
+                        <div class="team-panel__option swiper-slide" id="exchange" onclick="teamCategory(this.id)">
                             Exchange
                         </div>
                     </section>
@@ -151,8 +151,14 @@
                 </div>
             </div>
             <section class="modalWindow__content">
+
+                <div class="slide-buttons">
+                    <img src="./img/arrow-right.svg" class="swiper-button-prev" alt="Left-Arrow-Button">
+                    <img src="./img/arrow-right.svg" class="swiper-button-next" alt="Right-Arrow-Button">
+                </div>
+
                 <section class="modalWindow__category">
-                    <article class="crew-card">
+                    <article class="crew-card swiper-slide">
                         <div class="crew-card__front">
                             <div class="crew-card__name">
                                 <h3>Lucas "Brazu" Ledesma</h3>
@@ -176,7 +182,9 @@
                         <img src="./img/crewpics/crewpic-lucas.jpg" alt="profilepic">
                     </article>
 
-                    <article class="crew-card">
+                    
+
+                    <article class="crew-card swiper-slide">
                         <div class="crew-card__front">
                             <div class="crew-card__name">
                                 <h3>Gerardo Lopez</h3>
@@ -202,7 +210,7 @@
                 </section>
 
                 <section class="modalWindow__category">
-                    <article class="crew-card">
+                    <article class="crew-card swiper-slide">
                         <div class="crew-card__front">
                             <div class="crew-card__name">
                                 <h3>Manuela Escudero</h3>
@@ -226,7 +234,7 @@
                         <img src="./img/crewpics/crewpic-manuela.jpg" alt="profilepic">
                     </article>
     
-                    <article class="crew-card">
+                    <article class="crew-card swiper-slide">
                         <div class="crew-card__front">
                             <div class="crew-card__name">
                                 <h3>Macarena Rivas</h3>
@@ -252,7 +260,7 @@
                 </section>
 
                 <section class="modalWindow__category">
-                    <article class="crew-card">
+                    <article class="crew-card swiper-slide">
                         <div class="crew-card__front">
                             <div class="crew-card__name">
                                 <h3>Matias Mieras</h3>
@@ -278,7 +286,7 @@
                         <img src="./img/crewpics/crewpic-matias.jpg" alt="profilepic">
                     </article>
     
-                    <article class="crew-card">
+                    <article class="crew-card swiper-slide">
                         <div class="crew-card__front">
                             <div class="crew-card__name">
                                 <h3>Lucas Romano</h3>
@@ -292,7 +300,7 @@
                             </div>
                             <p class="crew-card__about">
                                 Aprendiz de todo, maestro de nada<br>
-                                Aficionado por la lectura, Japón, criptomonedas y el diseño<br>
+                                Aficionado por la lectura, Japón, las criptomonedas y el diseño<br>
                                 Liberal económico, social y cultural
                             </p>
                             <div class="crew-card__social">
@@ -304,7 +312,7 @@
                         <img src="./img/crewpics/crewpic-lucas-romano.jpg" alt="">
                     </article>
 
-                    <article class="crew-card">
+                    <article class="crew-card swiper-slide">
                         <div class="crew-card__front">
                             <div class="crew-card__name">
                                 <h3>Lucia Errecart</h3>
@@ -328,7 +336,7 @@
                         <img src="./img/crewpics/crewpic-lucia.jpg" alt="">
                     </article>
 
-                    <article class="crew-card">
+                    <article class="crew-card swiper-slide">
                         <div class="crew-card__front">
                             <div class="crew-card__name">
                                 <h3>Mijail Cuesta</h3>
@@ -353,7 +361,7 @@
                         <img src="./img/crewpics/crewpic-mijail.jpg" alt="">
                     </article>
 
-                    <article class="crew-card">
+                    <article class="crew-card swiper-slide">
                         <div class="crew-card__front">
                             <div class="crew-card__name">
                                 <h3>Verónica Haiwit</h3>
@@ -381,7 +389,7 @@
                 </section>
 
                 <section class="modalWindow__category">
-                    <article class="crew-card">
+                    <article class="crew-card swiper-slide">
                         <div class="crew-card__front">
                             <div class="crew-card__name">
                                 <h3>Facundo Ledesma</h3>
@@ -433,12 +441,10 @@
             </div>
         </div>
     </footer>
-    <script src="https://kit.fontawesome.com/be8d402dc7.js" crossorigin="anonymous"></script>
+    <script src="./js/swiper-bundle.min.js"></script>
     <script src="./js/main.js"></script>
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8F5JTG64KK"></script>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}

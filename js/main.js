@@ -1,9 +1,12 @@
+/* eslint-disable */
+
 // Panel Crew
 
 const modalWindow = document.getElementsByClassName('modalWindow');
 const modalWindowCategory = document.querySelectorAll('.modalWindow__category')
-
-window.onload = teamCategory('gerencia');
+const modalContent = document.querySelectorAll('.modalWindow__content');
+const hoverPanelW = document.querySelectorAll('.hover-panel__wrapper');
+const teamPanel = document.querySelectorAll('.team-panel');
 
 function teamCategory(selection) {
 
@@ -13,27 +16,97 @@ function teamCategory(selection) {
 
   if (selection == 'gerencia') {
     modalWindowCategory[0].classList.add('active');
+    enableSwiper('gerencia')
   }
 
   if (selection == 'administracion') {
     modalWindowCategory[1].classList.add('active');
+    enableSwiper('administracion')
   }
 
   if (selection == 'contenidos') {
     modalWindowCategory[2].classList.add('active');
+    enableSwiper('contenidos')
   }
 
   if (selection == 'exchange') {
     modalWindowCategory[3].classList.add('active');
+    enableSwiper('exchange')
   }
+}
+
+function enableSwiper(selection) {
+  if (window.innerWidth <= 920) {
+
+    for (i=0; i < modalWindowCategory.length; i++) {
+      modalWindowCategory[i].classList.remove('swiper-wrapper');
+    }
+
+    if (selection == 'gerencia') {
+      modalWindowCategory[0].classList.add('swiper-wrapper');
+      createExtraSwiper();
+    }
+
+    if (selection == 'administracion') {
+      modalWindowCategory[1].classList.add('swiper-wrapper');
+      createExtraSwiper();
+    }
+
+    if (selection == 'contenidos') {
+      modalWindowCategory[2].classList.add('swiper-wrapper');
+      createExtraSwiper();
+    }
+
+    if (selection == 'exchange') {
+      modalWindowCategory[3].classList.add('swiper-wrapper');
+      createExtraSwiper();
+    }
+  }
+}
+
+if (window.innerWidth <= 920) {
+  hoverPanelW[3].classList.add('swiper');
+  teamPanel[0].classList.add('swiper-wrapper')
+  modalContent[0].classList.add('swiper2');
+}
+
+// Swiper JS
+
+const swiper1 = new Swiper('.swiper', {
+  speed: 400,
+  spaceBetween: 100,
+  loop: true,
+  grabCursor: true,
+  centeredSlides: true,
+  direction: 'horizontal',
+  slidesPerView: 1,
+})
+
+function createExtraSwiper() {
+
+  const swiper2 = new Swiper('.swiper2', {
+    speed: 400,
+    spaceBetween: 100,
+    loop: false,
+    grabCursor: true,
+    centeredSlides: true,
+    direction: 'horizontal',
+    slidesPerView: 1,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  })
 
 }
+
+window.onload = teamCategory('gerencia');
 
 function closePanel() {
   modalWindow[0].classList.remove('active');
 }
 
-function showPanels(b) {
+function showPanels() {
   modalWindow[0].classList.toggle('active');
 }
 
