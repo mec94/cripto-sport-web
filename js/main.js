@@ -76,10 +76,14 @@ const swiper1 = new Swiper('.swiper', {
   speed: 400,
   spaceBetween: 100,
   loop: true,
-  grabCursor: true,
+  grabCursor: false,
   centeredSlides: true,
   direction: 'horizontal',
   slidesPerView: 1,
+  navigation: {
+    nextEl: '#swiper-button-next-1',
+    prevEl: '#swiper-button-prev-2',
+  },
 })
 
 function createExtraSwiper() {
@@ -93,8 +97,8 @@ function createExtraSwiper() {
     direction: 'horizontal',
     slidesPerView: 1,
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '#swiper-button-next-2',
+      prevEl: '#swiper-button-prev-2',
     },
   })
 
