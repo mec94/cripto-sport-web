@@ -64,13 +64,13 @@ function enableSwiper(selection) {
   }
 }
 
+// Swiper JS
+
 if (window.innerWidth <= 920) {
   hoverPanelW[3].classList.add('swiper');
   teamPanel[0].classList.add('swiper-wrapper')
   modalContent[0].classList.add('swiper2');
 }
-
-// Swiper JS
 
 const swiper1 = new Swiper('.swiper', {
   speed: 500,
@@ -136,7 +136,6 @@ form.addEventListener("submit", e => {
 
 // Consulta API Binance
 
-/*
 
 const btcPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
 const btcPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT';
@@ -181,5 +180,3 @@ function actualizarPrecio(coinPrice,coinVariation,coinName,priceArrow) {
 
 setInterval( () => {actualizarPrecio(btcPrice,btcPriceVariation,coinName[0],priceArrow[0])}, 10000);
 setInterval( () => {actualizarPrecio(ethPrice,ethPriceVariation,coinName[1],priceArrow[1])}, 10000);
-
-*/
