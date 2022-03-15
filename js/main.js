@@ -86,6 +86,23 @@ const swiper1 = new Swiper('.swiper', {
   },
 })
 
+window.onload = teamCategory('gerencia');
+
+swiper1.on('slideChange', function() {
+  console.log(swiper1.realIndex);
+  if (swiper1.realIndex == 0) {
+    teamCategory('gerencia')
+  }
+  if (swiper1.realIndex == 1) {
+    teamCategory('administracion')
+  }
+  if (swiper1.realIndex == 2) {
+    teamCategory('contenidos')
+  }
+  if (swiper1.realIndex == 3) {
+    teamCategory('exchange')
+  }
+})
 
 function createExtraSwiper() {
 
@@ -104,8 +121,6 @@ function createExtraSwiper() {
   })
 
 }
-
-window.onload = teamCategory('gerencia');
 
 function closePanel() {
   modalWindow[0].classList.remove('active');
@@ -135,6 +150,8 @@ form.addEventListener("submit", e => {
 
 
 // Consulta API Binance
+
+/*
 
 
 const btcPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
@@ -180,3 +197,6 @@ function actualizarPrecio(coinPrice,coinVariation,coinName,priceArrow) {
 
 setInterval( () => {actualizarPrecio(btcPrice,btcPriceVariation,coinName[0],priceArrow[0])}, 10000);
 setInterval( () => {actualizarPrecio(ethPrice,ethPriceVariation,coinName[1],priceArrow[1])}, 10000);
+
+
+*/
