@@ -73,7 +73,7 @@ if (window.innerWidth <= 920) {
 // Swiper JS
 
 const swiper1 = new Swiper('.swiper', {
-  speed: 400,
+  speed: 500,
   spaceBetween: 100,
   loop: true,
   grabCursor: false,
@@ -82,14 +82,15 @@ const swiper1 = new Swiper('.swiper', {
   slidesPerView: 1,
   navigation: {
     nextEl: '#swiper-button-next-1',
-    prevEl: '#swiper-button-prev-2',
+    prevEl: '#swiper-button-prev-1',
   },
 })
 
+
 function createExtraSwiper() {
 
-  const swiper2 = new Swiper('.swiper2', {
-    speed: 400,
+  var swiper2 = new Swiper('.swiper2', {
+    speed: 600,
     spaceBetween: 100,
     loop: false,
     grabCursor: true,

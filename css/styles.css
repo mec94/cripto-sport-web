@@ -878,6 +878,12 @@ main {
     display: flex;
 }
 
+.team-panel__option::after {
+    background-color: var(--gold-clr);
+    transform-origin: top;
+    filter: brightness(120%);
+}
+
 .hover-panel {
     padding: 2em 0;
     overflow:visible;
