@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 // Panel Crew
 
 const modalWindow = document.getElementsByClassName('modalWindow');
 const modalWindowCategory = document.querySelectorAll('.modalWindow__category')
 const modalContent = document.querySelectorAll('.modalWindow__content');
-const hoverPanelW = document.querySelectorAll('.hover-panel__wrapper');
+const hoverPanelW = document.querySelectorAll('.content-panel__wrapper');
 const teamPanel = document.querySelectorAll('.team-panel');
 
 function teamCategory(selection) {
@@ -16,22 +14,22 @@ function teamCategory(selection) {
 
   if (selection == 'gerencia') {
     modalWindowCategory[0].classList.add('active');
-    enableSwiper('gerencia')
+    enableSwiper(selection)
   }
 
   if (selection == 'administracion') {
     modalWindowCategory[1].classList.add('active');
-    enableSwiper('administracion')
+    enableSwiper(selection)
   }
 
   if (selection == 'contenidos') {
     modalWindowCategory[2].classList.add('active');
-    enableSwiper('contenidos')
+    enableSwiper(selection)
   }
 
   if (selection == 'exchange') {
     modalWindowCategory[3].classList.add('active');
-    enableSwiper('exchange')
+    enableSwiper(selection)
   }
 }
 
@@ -74,9 +72,9 @@ if (window.innerWidth <= 920) {
 
 const swiper1 = new Swiper('.swiper', {
   speed: 500,
-  spaceBetween: 100,
+  spaceBetween: 0,
   loop: true,
-  grabCursor: false,
+  grabCursor: true,
   centeredSlides: true,
   direction: 'horizontal',
   slidesPerView: 1,
@@ -89,7 +87,6 @@ const swiper1 = new Swiper('.swiper', {
 window.onload = teamCategory('gerencia');
 
 swiper1.on('slideChange', function() {
-  console.log(swiper1.realIndex);
   if (swiper1.realIndex == 0) {
     teamCategory('gerencia')
   }
@@ -109,6 +106,10 @@ function createExtraSwiper() {
   var swiper2 = new Swiper('.swiper2', {
     speed: 600,
     spaceBetween: 100,
+    effect: 'coverflow',
+    coverflowEffect: {
+      depth: 200,
+    },
     loop: false,
     grabCursor: true,
     centeredSlides: true,
@@ -128,6 +129,8 @@ function closePanel() {
 
 function showPanels() {
   modalWindow[0].classList.toggle('active');
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
 
 // Formulario Subscripcion
@@ -151,10 +154,7 @@ form.addEventListener("submit", e => {
 
 // Consulta API Binance
 
-/*
-
-
-const btcPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
+/*const btcPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
 const btcPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT';
 
 const ethPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=ETHUSDT';
@@ -197,6 +197,5 @@ function actualizarPrecio(coinPrice,coinVariation,coinName,priceArrow) {
 
 setInterval( () => {actualizarPrecio(btcPrice,btcPriceVariation,coinName[0],priceArrow[0])}, 10000);
 setInterval( () => {actualizarPrecio(ethPrice,ethPriceVariation,coinName[1],priceArrow[1])}, 10000);
-
 
 */

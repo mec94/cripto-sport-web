@@ -121,12 +121,12 @@ a {
 }
 
 .selectable-panel:nth-child(2) {
-    z-index: 2;
+    z-index: 3;
     right: -13%;
 }
 
 .selectable-panel:last-child {
-    z-index: 3;
+    z-index: 2;
     right: 0;
 }
 
@@ -134,6 +134,7 @@ a {
 
 .front-panel {
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: flex-end;
     padding: 2em 0 3em;
@@ -141,7 +142,6 @@ a {
     background: var(--panel-gradient-transparent);
     height: 100%;
     clip-path: polygon(40% 0, 100% 0%, 60% 100%, 0 100%);
-    transition: opacity .2s ease-out;
 }
 
 .selectable-panel:last-child .front-panel {
@@ -191,30 +191,42 @@ a {
     filter: brightness(50%) contrast(80%);
 }
 
-/* Hover Panel */
+/* Content Panel */
 
-.hover-panel {
+.content-panel {
     position: absolute;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     padding: 2em 0;
     top: 0;
     opacity: 0;
-    z-index: 50;
-    background: var(--panel-gradient);
     overflow: hidden;
     height: 100%;
-    width: 100%;
-    clip-path: polygon(40% 0, 100% 0%, 60% 100%, 0 100%);
-    transition: opacity .4s ease-out;
+    width: 120%;
+    right: 0;
+    clip-path: polygon(33% 0, 100% 0%, 67% 100%, 0 100%);
+    transition: opacity .2s linear, transform .2s linear;
+    transform: translateX(10%);
 }
 
-.hover-panel--last {
+.content-panel--last {
+    width: 100%;
     clip-path: polygon(40% 0, 100% 0%, 100% 100%, 0% 100%);
 }
 
-.hover-panel video {
+.content-panel__wrapper {
+    width: 70%;
+    height: 100%;
+    color: #fff;
+}
+
+.content-panel__wrapper--last {
+    width: 55%;
+}
+
+.content-panel video {
     position: absolute;
     top: 0;
     width: 100%;
@@ -224,18 +236,7 @@ a {
     opacity: .2;
 }
 
-.hover-panel__wrapper {
-    opacity: 0;
-    width: 70%;
-    height: 100%;
-    color: #fff;
-}
-
-.hover-panel__wrapper--last {
-    width: 55%;
-}
-
-.hover-panel h3 {
+.content-panel h3 {
     position: relative;
     left: 15%;
     text-transform: uppercase;
@@ -244,7 +245,7 @@ a {
     margin-bottom: 1.4em;
 }
 
-.hover-panel h4 {
+.content-panel h4 {
     position: relative;
     font-size: 1.4rem;
     margin-bottom: .3em;
@@ -256,15 +257,25 @@ a {
     max-width: 80%;
 }
 
-.hover-panel p {
+.content-panel p {
     line-height: 1.3;
     max-width: 80%;
     font-size: 1.1rem;
     margin-bottom: 1em;
 }
 
-.hover-panel--last p {
+.content-panel--last p {
     max-width: 90%;
+}
+
+.content-panel ul {
+    margin-bottom: 2em;
+}
+
+.content-panel ul li {
+    font-size: 1.1rem;
+    margin: .5em;
+    color: #fafdd4;
 }
 
 .bent-paragraph::before {
@@ -306,32 +317,24 @@ a {
     opacity: .8;
 }
 
-.hover-panel ul {
-    margin-bottom: 2em;
-}
-
-.hover-panel ul li {
-    font-size: 1.1rem;
-    margin: .5em;
-    color: #fafdd4;
-}
-
 .email {
+    position: absolute;
+    left: 0;
     padding: 1em 4em;
     border-radius: 5px;
     display: block;
     font-size: 1.2rem;
     margin-top: 1em;
-    background-color: var(--gold-clr);
-    position: absolute;
+    background-color: var(--navy-blue-clr);
+    color: var(--gold-clr);
+    transition: background-color .3s ease-out, color .3s;
     text-align: center;
-    left: 0;
     width: 100%;
 }
 
 .email:hover {
-    transition: filter .3s ease-out;
-    filter: brightness(120%);
+    background-color: var(--gold-clr);
+    color: #fff;
 }
 
 .redes {
@@ -361,6 +364,33 @@ a {
     width: 2.5em;
 }
 
+/* Video Panel */
+
+.video-panel {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    background: var(--panel-gradient);
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    clip-path: polygon(40% 0, 100% 0%, 60% 100%, 0 100%);
+    animation: shrinkPanel .2s linear;
+}
+
+.video-panel--last {
+    clip-path: polygon(40% 0, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.video-panel video {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .2;
+}
+
 /* Crew Card */
 
 .crew-card {
@@ -375,6 +405,7 @@ a {
 
 .crew-card > img {
     object-fit: cover;
+    object-position: 50% 0%;
     width: 100%;
     height: 100%;
 }
@@ -487,18 +518,20 @@ a {
     opacity: 1;
 }
 
-.modalWindow .hover-panel {
+.modalWindow .content-panel {
+    background: var(--panel-gradient);
+    transform: none;
     position: relative;
     width: 40%;
     opacity: 1;
 }
 
-.modalWindow .hover-panel__wrapper {
+.modalWindow .content-panel__wrapper {
     width: 90%;
     opacity: 1;
 }
 
-.modalWindow > .hover-panel h3 {
+.modalWindow > .content-panel h3 {
     font-size: 1.8rem;
     text-align: center;
     text-transform: none;
@@ -571,7 +604,7 @@ a {
     border-bottom: 3px solid var(--medium-gray-clr);
     font-weight: 700;
     margin-bottom: .3em;
-    z-index: 50;
+    z-index: 20;
 }
 
 .team-panel__option::after {
@@ -738,38 +771,51 @@ footer ul li:hover::before {
 
 /* Hover */
 
-.selectable-panel:hover .front-panel {
-    opacity: 0;
-    transition: opacity .2s linear;
-}
-
-.selectable-panel:hover .hover-panel {
-    z-index: 100;
+.selectable-panel:hover .content-panel {
     opacity: 1;
-    animation: ancho .5s ease-out;
-    animation-fill-mode: forwards;
-    transition: opacity .4s ease-out;
+    transform: translateX(0%);
+    transition: opacity .6s ease-in, transform .5s ease-out;
 }
 
-.selectable-panel:last-child:hover .hover-panel {
+.selectable-panel:hover .video-panel {
+    animation: expandPanel .5s ease-out;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+.selectable-panel:last-child:hover .video-panel {
     animation: none;
     transform: none;
 }
 
-.selectable-panel:hover .hover-panel__wrapper {
-    transition: opacity .6s ease-in;
-    opacity: 1;
-}
-
-@keyframes ancho {
+@keyframes expandPanel {
     from {
         right: 0;
         width: 100%;
+        opacity: 0;
+        transition: opacity .4s ease-in;
     }
     to {
         right: 0;
         width: 120%;
         clip-path: polygon(33% 0, 100% 0%, 67% 100%, 0 100%);
+        opacity: 1;
+    }
+}
+
+@keyframes shrinkPanel {
+    from {
+        right: 0;
+        width: 120%;
+        clip-path: polygon(33% 0, 100% 0%, 67% 100%, 0 100%);
+        opacity: 1;
+        transition: opacity .6s linear;
+    }
+    to {
+        right: 0;
+        width: 100%;
+        clip-path: polygon(40% 0, 100% 0%, 60% 100%, 0 100%);
+        opacity: 0;
     }
 }
 
@@ -816,10 +862,6 @@ main {
     padding: 2.5em 1.2em;
 }
 
-.selectable-panel:hover .front-panel {
-    opacity: 1;
-}
-
 .front-panel__subtitle {
     left: 0;
 }
@@ -830,17 +872,59 @@ main {
     width: 25%;
 }
 
-#capacitateIcono {
-    display: inline-block;
-}
-
 .front-panel .formularioSubscripcion {
     display: none;
 }
 
-.hover-panel, .hover-panel--last {
+.video-panel {
+    z-index: -1;
+    clip-path: none;
+}
+
+.selectable-panel:hover .video-panel {
+    animation: none;
+    animation-fill-mode: none;
+}
+
+.content-panel, .content-panel--last {
     transform: scaleY(0);
     clip-path: none;
+    padding: 2em 0;
+    overflow: visible;
+    height: auto;
+}
+
+.selectable-panel:hover .content-panel {
+    position: relative;
+    transition: transform .4s ease-out;
+    transform-origin: top;
+    transform: scaleY(1);
+    clip-path: none;
+    animation: none;
+    top: 100%;
+}
+
+.selectable-panel .content-panel__wrapper {
+    width: 95%;
+}
+
+.content-panel h3 {
+    left: 0;
+}
+
+.bent-paragraph::before {
+    display: none;
+}
+
+.email {
+    background-color: var(--gold-clr);
+    color: #fff;
+    position: relative;
+    padding: 2em 1em;
+}
+
+#capacitateIcono {
+    display: inline-block;
 }
 
 .modalWindow {
@@ -854,12 +938,12 @@ main {
     gap: 0;
 }
 
-.modalWindow .hover-panel {
+.modalWindow .content-panel {
     transform: none;
     width: 100%;
 }
 
-.modalWindow .hover-panel__wrapper {
+.modalWindow .content-panel__wrapper {
     width: 100%;
     height: auto;
 }
@@ -874,6 +958,10 @@ main {
     display: flex;
 }
 
+.crew-card {
+    min-height: 16em;
+}
+
 .team-panel {
     display: flex;
 }
@@ -884,46 +972,13 @@ main {
     filter: brightness(120%);
 }
 
-.hover-panel {
-    padding: 2em 0;
-    overflow:visible;
-    height: auto;
-}
-
-.hover-panel h3 {
-    left: 0;
-}
-
-.bent-paragraph::before {
-    display: none;
-}
-
-.selectable-panel:hover .hover-panel {
-    position: relative;
-    transition: transform .4s ease-out;
-    transform-origin: top;
-    transform: scaleY(1);
-    clip-path: none;
-    animation: none;
-    top: 100%;
-}
-
-.selectable-panel .hover-panel__wrapper {
-    width: 95%;
-}
-
-.email {
-    position: relative;
-    padding: 2em 1em;
-}
-
 footer {
     flex-direction: column;
     height: 100%;
 }
 
 footer ul {
-    flex-direction: column;
+    flex-direction: column-reverse;
     width: 100%;
     padding: 1em 0;
 }
@@ -978,15 +1033,15 @@ footer ul li img {
 
 @media screen and (max-width: 1500px) {
 
-    .hover-panel__wrapper {
+    .content-panel__wrapper {
         width: 72%;
     }
 
-    .hover-panel__wrapper .email {
+    .content-panel__wrapper .email {
         text-align: left;
     }
 
-    .hover-panel__wrapper--last {
+    .content-panel__wrapper--last {
         width: 60%;
     }
 
