@@ -154,7 +154,7 @@ form.addEventListener("submit", e => {
 
 // Consulta API Binance
 
-/*const btcPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
+const btcPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
 const btcPriceVariation = 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT';
 
 const ethPrice = 'https://api.binance.com/api/v3/avgPrice?symbol=ETHUSDT';
@@ -197,5 +197,3 @@ function actualizarPrecio(coinPrice,coinVariation,coinName,priceArrow) {
 
 setInterval( () => {actualizarPrecio(btcPrice,btcPriceVariation,coinName[0],priceArrow[0])}, 10000);
 setInterval( () => {actualizarPrecio(ethPrice,ethPriceVariation,coinName[1],priceArrow[1])}, 10000);
-
-*/
