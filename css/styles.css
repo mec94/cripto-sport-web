@@ -380,6 +380,8 @@ a {
 
 .video-panel--last {
     clip-path: polygon(40% 0, 100% 0%, 100% 100%, 0% 100%);
+    transition: opacity .4s ease-in;
+    animation: none;
 }
 
 .video-panel video {
@@ -783,9 +785,8 @@ footer ul li:hover::before {
     opacity: 1;
 }
 
-.selectable-panel:last-child:hover .video-panel {
+.selectable-panel:hover .video-panel--last {
     animation: none;
-    transform: none;
 }
 
 @keyframes expandPanel {
